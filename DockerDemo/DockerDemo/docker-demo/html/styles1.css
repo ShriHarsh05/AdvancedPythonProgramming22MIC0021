@@ -1,0 +1,177 @@
+/* Reset and basic setup */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: radial-gradient(circle at top left, #0b132b, #1c2541, #3a506b);
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin: 40px 0;
+    animation: fadeIn 1s ease;
+}
+
+header h1 {
+    font-size: 2.8rem;
+    color: #ffd166;
+    text-shadow: 0 0 20px rgba(255, 209, 102, 0.8);
+}
+
+/* Image Styling (Python logo) */
+.logo {
+    width: 160px;
+    margin-top: 15px;
+    transition: transform 0.4s ease;
+}
+
+.logo:hover {
+    transform: rotate(5deg) scale(1.1);
+}
+
+/* Main content box */
+main {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 850px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    animation: slideUp 1s ease;
+}
+
+/* Paragraphs for index.html */
+p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: #e0e0e0;
+}
+
+/* Quiz Section */
+.question {
+    margin-bottom: 25px;
+    background: rgba(255, 255, 255, 0.07);
+    padding: 15px 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.question:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 15px rgba(255, 209, 102, 0.4);
+}
+
+.question p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #ffd166;
+}
+
+/* Quiz Options */
+label {
+    display: block;
+    margin: 6px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+    accent-color: #06d6a0;
+}
+
+label:hover {
+    color: #06d6a0;
+}
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #ffd166, #f6ae2d);
+    color: #1c2541;
+    font-weight: 600;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease;
+    box-shadow: 0 0 10px rgba(255, 209, 102, 0.4);
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #f6ae2d, #ffd166);
+    transform: scale(1.05);
+}
+
+/* Result display */
+.result {
+    margin-top: 30px;
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+.result h2 {
+    color: #06d6a0;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px rgba(6, 214, 160, 0.5);
+}
+
+/* Footer (optional) */
+footer {
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: #9da9bb;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scrollbar styling (optional but aesthetic) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffd166;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1c2541;
+}

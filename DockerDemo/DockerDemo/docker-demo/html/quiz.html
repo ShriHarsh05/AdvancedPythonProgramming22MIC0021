@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Quiz</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>🐍 Python Quiz</h1>
+    </header>
+
+    <main>
+        <form id="quizForm">
+
+            <div class="question">
+                <p>1️⃣ What year was Python first released?</p>
+                <label><input type="radio" name="q1" value="1991" />1991</label>
+                <label><input type="radio" name="q1" value="2000" />2000</label>
+                <label><input type="radio" name="q1" value="1989" />1989</label>
+            </div>
+
+            <div class="question">
+                <p>2️⃣ Who created Python?</p>
+                <label><input type="radio" name="q2" value="Guido van Rossum" />Guido van Rossum</label>
+                <label><input type="radio" name="q2" value="James Gosling" />James Gosling</label>
+                <label><input type="radio" name="q2" value="Dennis Ritchie" />Dennis Ritchie</label>
+            </div>
+
+            <div class="question">
+                <p>3️⃣ Python was named after what?</p>
+                <label><input type="radio" name="q3" value="Monty Python" />Monty Python</label>
+                <label><input type="radio" name="q3" value="The Snake" />The Snake</label>
+                <label><input type="radio" name="q3" value="Greek Myth" />Greek Myth</label>
+            </div>
+
+            <div class="question">
+                <p>4️⃣ Which data type is immutable in Python?</p>
+                <label><input type="radio" name="q4" value="List" />List</label>
+                <label><input type="radio" name="q4" value="Dictionary" />Dictionary</label>
+                <label><input type="radio" name="q4" value="Tuple" />Tuple</label>
+            </div>
+
+            <div class="question">
+                <p>5️⃣ Which keyword is used to define a function in Python?</p>
+                <label><input type="radio" name="q5" value="def" />def</label>
+                <label><input type="radio" name="q5" value="func" />func</label>
+                <label><input type="radio" name="q5" value="function" />function</label>
+            </div>
+
+            <div class="question">
+                <p>6️⃣ What is the output of: <code>print(type([]))</code>?</p>
+                <label><input type="radio" name="q6" value="list" />&lt;class 'list'&gt;</label>
+                <label><input type="radio" name="q6" value="tuple" />&lt;class 'tuple'&gt;</label>
+                <label><input type="radio" name="q6" value="dict" />&lt;class 'dict'&gt;</label>
+            </div>
+
+            <div class="question">
+                <p>7️⃣ What symbol is used to start a comment in Python?</p>
+                <label><input type="radio" name="q7" value="#" />#</label>
+                <label><input type="radio" name="q7" value="//" />//</label>
+                <label><input type="radio" name="q7" value="/* */" />/* */</label>
+            </div>
+
+            <div class="question">
+                <p>8️⃣ Which of the following is not a Python framework?</p>
+                <label><input type="radio" name="q8" value="Django" />Django</label>
+                <label><input type="radio" name="q8" value="Laravel" />Laravel</label>
+                <label><input type="radio" name="q8" value="Flask" />Flask</label>
+            </div>
+
+            <div class="question">
+                <p>9️⃣ Which Python library is used for data analysis?</p>
+                <label><input type="radio" name="q9" value="Pandas" />Pandas</label>
+                <label><input type="radio" name="q9" value="OpenCV" />OpenCV</label>
+                <label><input type="radio" name="q9" value="Matplotlib" />Matplotlib</label>
+            </div>
+
+            <div class="question">
+                <p>🔟 What is the correct file extension for Python files?</p>
+                <label><input type="radio" name="q10" value=".py" />.py</label>
+                <label><input type="radio" name="q10" value=".python" />.python</label>
+                <label><input type="radio" name="q10" value=".pt" />.pt</label>
+            </div>
+
+            <button type="button" class="btn" onclick="checkAnswers()">Submit Quiz ✅</button>
+        </form>
+
+        <div id="result" class="result"></div>
+    </main>
+
+    <script>
+        function checkAnswers() {
+            const answers = {
+                q1: "1991",
+                q2: "Guido van Rossum",
+                q3: "Monty Python",
+                q4: "Tuple",
+                q5: "def",
+                q6: "list",
+                q7: "#",
+                q8: "Laravel",
+                q9: "Pandas",
+                q10: ".py"
+            };
+
+            let score = 0;
+            const form = document.getElementById("quizForm");
+
+            for (let key in answers) {
+                const options = form.elements[key];
+                let selected = "";
+
+                for (let i = 0; i < options.length; i++) {
+                    if (options[i].checked) {
+                        selected = options[i].value;
+                        break;
+                    }
+                }
+
+                if (selected === answers[key]) {
+                    score++;
+                }
+            }
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+        <h2>Your Score: ${score}/10 🎯</h2>
+        <p>${score === 10
+                    ? "🔥 Perfect! You're a Python Master!"
+                    : score >= 7
+                        ? "Great job! You're very knowledgeable! 🧠"
+                        : score >= 4
+                            ? "Not bad! Keep practicing. 💪"
+                            : "Keep learning, Python wizard in training! 🐍"
+                }</p>
+        <a href="index.html" class="btn">⬅️ Back to Facts</a>
+      `;
+        }
+    </script>
+</body>
+
+</html>
